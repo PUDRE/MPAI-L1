@@ -13,7 +13,15 @@ parser.add_argument('-c', '--color', type=int)
 
 args = parser.parse_args()
 img = imread(args.path)
+flooded = segmentation.flood_fill(img, (args.xpixel, args.ypixel), args.color)
+imsave(args.spath, flooded)
 
+fig = plt.figure(figsize=(10, 5))
+
+fig.add_subplot(2, 2, 1)
 imshow(img)
+
+fig.add_subplot(2, 2, 2)
+imshow(flooded)
 
 show()
