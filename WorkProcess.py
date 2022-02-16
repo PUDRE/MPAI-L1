@@ -24,4 +24,12 @@ imshow(img)
 fig.add_subplot(2, 2, 2)
 imshow(flooded)
 
+hist_red, bins_red = histogram(img[500:600, 300:400])
+fig.add_subplot(2, 2, 3)
+plt.plot(bins_red, hist_red, color='red', linestyle='-', linewidth=1)
+
+hist_red, bins_red = histogram(flooded[500:600, 300:400])
+fig.add_subplot(2, 2, 4)
+plt.plot(bins_red, hist_red, color='red', linestyle='-', linewidth=1)
+
 show()
